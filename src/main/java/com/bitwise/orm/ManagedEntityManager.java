@@ -1,5 +1,6 @@
 package com.bitwise.orm;
 
+import com.bitwise.annotations.Inject;
 import com.bitwise.util.MetaModel;
 import lombok.SneakyThrows;
 
@@ -10,9 +11,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.atomic.AtomicLong;
 
-public abstract class AbstractEntityManager<T> implements EntityManager<T> {
+public class ManagedEntityManager<T> implements EntityManager<T> {
 
     private final AtomicLong idGenerator = new AtomicLong(0L);
+
+    @Inject
+    private Connection connection;
 
     @Override
     public void persist(T t) throws SQLException, IllegalAccessException {
@@ -75,16 +79,15 @@ public abstract class AbstractEntityManager<T> implements EntityManager<T> {
     }
 
     private PreparedStatementWrapper prepareStatementWith(String sql) throws SQLException {
-        Connection connection = buildConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
         return new PreparedStatementWrapper(statement);
     }
 
-    public abstract Connection buildConnection() throws SQLException;
+
 
     private class PreparedStatementWrapper {
 
-        private PreparedStatement statement;
+        private final PreparedStatement statement;
 
         public PreparedStatementWrapper(PreparedStatement statement) {
             this.statement = statement;

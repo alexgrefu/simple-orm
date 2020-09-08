@@ -35,8 +35,8 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.h2.Driver.connect(Driver.java:69)
 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
-	at com.bitwise.orm.AbstractEntityManager.prepareStatementWith(EntityManagerImpl.java:27)
-	at com.bitwise.orm.AbstractEntityManager.persist(EntityManagerImpl.java:19)
+	at com.bitwise.orm.ManagedEntityManager.prepareStatementWith(EntityManagerImpl.java:27)
+	at com.bitwise.orm.ManagedEntityManager.persist(EntityManagerImpl.java:19)
 	at com.bitwise.Application.main(Application.java:26)
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/src/java-start/java-collections-fundamentals/bw-orm/db-files/db.mv.db [1.4.200/7]" [50000-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
@@ -73,8 +73,8 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.h2.Driver.connect(Driver.java:69)
 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
-	at com.bitwise.orm.AbstractEntityManager.prepareStatementWith(EntityManagerImpl.java:27)
-	at com.bitwise.orm.AbstractEntityManager.persist(EntityManagerImpl.java:19)
+	at com.bitwise.orm.ManagedEntityManager.prepareStatementWith(EntityManagerImpl.java:27)
+	at com.bitwise.orm.ManagedEntityManager.persist(EntityManagerImpl.java:19)
 	at com.bitwise.Application.main(Application.java:26)
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/src/java-start/java-collections-fundamentals/bw-orm/db-files/db.mv.db [1.4.200/7]" [50000-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
@@ -113,7 +113,7 @@ insert into Person (id,name,age) values (?, ?, ?) [90012-200]
 	at org.h2.command.Command.executeUpdate(Command.java:251)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
-	at com.bitwise.orm.AbstractEntityManager.persist(EntityManagerImpl.java:21)
+	at com.bitwise.orm.ManagedEntityManager.persist(EntityManagerImpl.java:21)
 	at com.bitwise.Application.main(Application.java:26)
 2020-09-07 00:01:21 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Parameter "#3" is not set; SQL statement:
@@ -128,7 +128,7 @@ insert into Person (id,name,age) values (?, ?, ?) [90012-200]
 	at org.h2.command.Command.executeUpdate(Command.java:251)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
-	at com.bitwise.orm.AbstractEntityManager.persist(EntityManagerImpl.java:21)
+	at com.bitwise.orm.ManagedEntityManager.persist(EntityManagerImpl.java:21)
 	at com.bitwise.Application.main(Application.java:26)
 2020-09-07 00:02:16 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Parameter "#3" is not set; SQL statement:
@@ -143,7 +143,7 @@ insert into Person (id,name,age) values (?, ?, ?) [90012-200]
 	at org.h2.command.Command.executeUpdate(Command.java:251)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
-	at com.bitwise.orm.AbstractEntityManager.persist(EntityManagerImpl.java:21)
+	at com.bitwise.orm.ManagedEntityManager.persist(EntityManagerImpl.java:21)
 	at com.bitwise.Application.main(Application.java:26)
 2020-09-07 00:53:54 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT ID,NAME,AGE FROM PERSON WHERE ID ?[*]"; SQL statement:

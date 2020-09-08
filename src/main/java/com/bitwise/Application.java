@@ -2,17 +2,17 @@ package com.bitwise;
 
 import com.bitwise.model.Person;
 import com.bitwise.orm.EntityManager;
-import com.bitwise.util.MetaModel;
+import com.bitwise.orm.ManagedEntityManager;
 import lombok.SneakyThrows;
-
-import java.sql.SQLException;
 
 public class Application {
 
 
     public static void main(String[] args) throws Exception {
 
-        EntityManager<Person> entityManager = EntityManager.of(Person.class);
+        BeanManager beanManager = BeanManager.getInstance();
+
+        EntityManager<Person> entityManager = beanManager.createInstance(ManagedEntityManager.class);
 
         //WriteObjects(entityManager);
 
